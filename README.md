@@ -1,2 +1,8 @@
 # Personal-Website
-a repo for the files and assets of the portilio
+## A repo for the files and assets of the portilio
+### It contains the following pages
+* landing page
+* About me page
+* Skills page
+* Project page
+* Contact page
