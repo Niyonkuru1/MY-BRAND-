@@ -1,4 +1,4 @@
-# Personal-Website
+# MY BRAND ( Portfolio + blog )
 ## A repo for the files and assets of the portilio
 ### It contains the following pages
 * landing page
