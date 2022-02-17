@@ -5,4 +5,5 @@
 * About me page
 * Skills page
 * Project page
+* blog page
 * Contact page
