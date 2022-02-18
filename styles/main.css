@@ -13,11 +13,12 @@ body {
     font-size: 24px;
     margin-top: 3em;
     margin-bottom: 2em;
+    align-content: center;
 }
 
-
-.mainLeft, .mainRight {
-    /* border: 5px solid red; */
+.mainLeft,
+.mainRight {
+    border: 5px solid red;
 }
 
 .mainRight>img {
@@ -31,49 +32,52 @@ body {
     align-items: center;
 }
 
-.mainLeft>div {
-    font-size: 36px;
-    font-weight: 700;
-}
-
-.mainLeft>p {
-    padding: 1em 0 1.5em 0;
-    margin: unset;
-}
-
-.topSection {
-    /* border: 5px solid rgb(55, 0, 255); */
+.mainLeft {
     display: flex;
-    /* justify-items: center; */
-    justify-content: center;
-}
-
-.bottomRect {
-    background-color: #eb00ff;
-    color: #eb00ff;
-    height: 3.5em;
-}
-
-.header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.border {
-    width: 111px;
-    height: 4px;
-    border-top: 5px solid #CA8ECF;
-    margin-top: 12px;
-
-}
-
-#colouser {
-    margin-top: 2em;
-}
-
-.colouser {
-    margin-top: 0.5em;
+    flex-direction: row;
+    al i .mainLeft>div {
+        font-size: 36px;
+        font-weight: 700;
+    }
+    .mainLeft>p {
+        padding: 1em 0 1.5em 0;
+        margin: unset;
+    }
+    .topSection {
+        /* border: 5px solid rgb(55, 0, 255); */
+        display: flex;
+        /* justify-items: center; */
+        justify-content: space-between;
+        padding-top: 1.5em;
+    }
+    ul {
+        display: flex;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        flex-direction: row;
+        color: black;
+        /* justify-content: space-around; */
+    }
+    ul li {
+        padding-right: 1em;
+    }
+    ul>li>a {
+        text-decoration: none;
+        color: black;
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .bottomRect {
+        background-color: #eb00ff;
+        color: #eb00ff;
+        height: 3.5em;
+    }
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 
 .line {
@@ -116,8 +120,9 @@ body {
     justify-content: center;
     align-content: center;
 }
+
 .bottom:hover {
-    background-color:#CA8ECF; 
+    background-color: #CA8ECF;
 }
 
 .button a {
@@ -125,4 +130,11 @@ body {
     font-size: 24px;
     color: white;
     justify-content: center;
+}
+
+color: white;
+justify-content: center;
+
+}
+
 }
