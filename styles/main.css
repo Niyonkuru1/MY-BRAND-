@@ -16,7 +16,7 @@ body {
     margin-bottom: 2em;
     align-content: center;
 }
-
+  
 .mainLeft,
 .mainRight {
     border: 5px solid red;
@@ -125,18 +125,23 @@ ul>li>a {
     justify-content: center;
     align-content: center;
 }
-.bottom:hover {
-    background-color: #CA8ECF;
-}
+
 .button a {
     text-decoration: none;
     font-size: 24px;
     color: white;
     justify-content: center;
 }
-color: white;
-justify-content: center;
 
-}
+ul a:hover {
+    color:#210424;
+    border-bottom: 5px solid #eb00ff;
+    /* background-color: #eb00ff;
+    padding: 0.25em 0.7em;
+    border-radius: 0.8em;
+    color: white; */
+  }
 
+div a:hover {
+    color: black;
 }
