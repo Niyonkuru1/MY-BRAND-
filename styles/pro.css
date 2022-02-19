@@ -1,5 +1,4 @@
 body {
-    background-color: #BFD8BD;
     display: flex;
     flex-direction: column;
     margin-left: 10%;
@@ -8,30 +7,20 @@ body {
 }
 
 .main {
-    display: flex;
-    flex-direction: row;
-    font-size: 24px;
-    margin-top: 3em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     margin-bottom: 2em;
+    margin-top: 2em;
 }
 
-
-.mainLeft, .mainRight {
-    /* border: 5px solid red; */
+.card {
+    background-color: #BFD8BD;
+    margin: 2em 1em;
+    padding: 2em 1em;
+    border-radius: 1em;
 }
 
-.mainRight>img {
-    width: 100%;
-    height: auto;
-}
-
-.mainRight {
-    padding: 3em 2em 2em 0;
-    flex-basis: 60em;
-    align-items: center;
-}
-
-.mainLeft>div {
+.heading {
     font-size: 36px;
     font-weight: 700;
 }
