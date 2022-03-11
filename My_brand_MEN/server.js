@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
 
+const connectDB =require('./server/database/connection')
+
 const app = express();
 
 dotenv.config({path:'config.env'})
@@ -13,6 +15,10 @@ const PORT = process.env.PORT || 8080
 // using the morgan just 
 //as console did in the browser
 app.use(morgan('tiny'));
+
+//connect the database to the app by calling the function defined in the 
+// database/connection.js
+connectDB();
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({extended:true}));
@@ -34,6 +40,6 @@ app.use('/js',express.static(path.resolve(__dirname,"assets/js")));
 
 app.use('/', require('./server/routes/router'))
 
-app.listen(PORT, ()=>{
+app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`)
 });
