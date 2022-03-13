@@ -13,6 +13,7 @@ route.get('/update-blog',services.updateBlogRoutes);
 
 route.get('/delete-blog',services.deleteBlogRoutes);
 
+
 // API then 
 route.post('/api/blogs', controller.create);
 route.get('/api/blogs', controller.find);

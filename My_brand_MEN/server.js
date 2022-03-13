@@ -22,6 +22,9 @@ connectDB();
 
 // parse request to body-parser
 app.use(bodyparser.urlencoded({extended:true}));
+//this just takes the json type data comes from the submitted form and process it to the regular 
+//javascript we can use
+app.use(express.json())
 
 // view engine ( where the parser will get the data from
 // in terms of format )
@@ -37,8 +40,9 @@ app.use('/css',express.static(path.resolve(__dirname,"assets/css")))
 app.use('/img',express.static(path.resolve(__dirname,"assets/img")))
 app.use('/js',express.static(path.resolve(__dirname,"assets/js")));
 
-
-app.use('/', require('./server/routes/router'))
+//To reference to the routes
+app.use('/', require('./server/routes/router'));
+app.use('/', require('./server/routes/authRoutes'));
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`)
