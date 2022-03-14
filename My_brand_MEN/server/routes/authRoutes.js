@@ -12,6 +12,7 @@ authRoute.post('/login', services.login_post);
 // auth API
 authRoute.post('/auth/signup',authController.signup_post );
 authRoute.post('/auth/login',authController.login_post );
+authRoute.get('/logout',authController.logout_get );
 
 module.exports = authRoute;
 

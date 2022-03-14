@@ -1,4 +1,5 @@
 var Userdb = require('../model/authModel');
+const jwt = require('jsonwebtoken');
 
 
 const handleErrors = (error)=>{
@@ -23,12 +24,24 @@ const handleErrors = (error)=>{
     return errors;
 }
 
+//function for CREATING A TOKEN FOR AUTHENTICATION
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id)=>{
+    return jwt.sign({id}, 'the game secret', {
+        expiresIn: maxAge
+    })
+}
+
 exports.signup_post = async (req,res)=>{
     const { email, password } = req.body;
 
     try {
        const user = await Userdb.create({email, password}); 
-       res.status(201).json(user);
+       const token = createToken(user._id);
+       res.cookie('jwt', token, {
+           httpOnly:true, maxAge: maxAge * 1000
+       })
+       res.status(201).json({user: user._id});
     }
     catch(err){
         const error = handleErrors(err);
@@ -52,7 +65,25 @@ exports.signup_post = async (req,res)=>{
     // });
     }
 
-exports.login_post = (req,res)=>{
+exports.login_post = async (req,res)=>{
         const { email, password } = req.body;
+
+        try {
+            const user = await Userdb.login(email,password);
+            const token = createToken(user._id);
+            res.cookie('jwt', token, {
+                httpOnly:true, maxAge: maxAge * 1000
+            })
+            res.status(200).json({user:user._id,})
+        }
+        catch(err){
+            res.status(400).json({error: err.message});
+        }
       
+    }
+
+
+    exports.logout_get = (req,res) =>{
+        res.cookie('jwt', '', {maxAge:1 });
+        res.redirect('/');
     }

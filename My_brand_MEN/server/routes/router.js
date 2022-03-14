@@ -1,17 +1,18 @@
-const express = require('express')
+const express = require('express');
 const route = express.Router();
 const services = require('../services/render');
 const controller = require('../controller/controller');
+const authMiddleware = require('../middleware/authMiddleware');
 
 route.get('/',services.homeRoutes);
 
-route.get('/all-blogs',services.allBlogsRoutes);
+route.get('/all-blogs',authMiddleware,services.allBlogsRoutes);
 
-route.get('/add-blog',services.addBlogRoutes);
+route.get('/add-blog',authMiddleware,services.addBlogRoutes);
 
-route.get('/update-blog',services.updateBlogRoutes);
+route.get('/update-blog',authMiddleware,services.updateBlogRoutes);
 
-route.get('/delete-blog',services.deleteBlogRoutes);
+route.get('/delete-blog',authMiddleware,services.deleteBlogRoutes);
 
 
 // API then 
