@@ -6,7 +6,7 @@ const authMiddleware = require('../middleware/authMiddleware');
 
 route.get('/',services.homeRoutes);
 
-route.get('/all-blogs',authMiddleware,services.allBlogsRoutes);
+route.get('/all-blog',authMiddleware,services.allBlogsRoutes);
 
 route.get('/add-blog',authMiddleware,services.addBlogRoutes);
 

@@ -157,8 +157,8 @@ h2:after{
     border: none;
     border-radius: 0.5rem;
 }
-btn:hover{
-    background-color:white;
+.btn:hover{
+    background-color:rgb(180, 180, 180);
 }
 
 @media screen and (max-width:880px){
