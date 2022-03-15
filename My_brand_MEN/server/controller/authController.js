@@ -1,5 +1,5 @@
-var Userdb = require('../model/authModel');
-const jwt = require('jsonwebtoken');
+import Userdb from '../model/authModel';
+import jwt from 'jsonwebtoken';
 
 
 const handleErrors = (error)=>{
@@ -32,7 +32,7 @@ const createToken = (id)=>{
     })
 }
 
-exports.signup_post = async (req,res)=>{
+export const signup_post_contro = async (req,res)=>{
     const { email, password } = req.body;
 
     try {
@@ -65,11 +65,12 @@ exports.signup_post = async (req,res)=>{
     // });
     }
 
-exports.login_post = async (req,res)=>{
+ export const login_post_contro = async (req,res)=>{
         const { email, password } = req.body;
-
+    console.log(email, password);
         try {
             const user = await Userdb.login(email,password);
+            console.log(user._id);
             const token = createToken(user._id);
             res.cookie('jwt', token, {
                 httpOnly:true, maxAge: maxAge * 1000
@@ -77,13 +78,16 @@ exports.login_post = async (req,res)=>{
             res.status(200).json({user:user._id,})
         }
         catch(err){
-            res.status(400).json({error: err.message});
+            res.status(400).json({errorio: err.message});
         }
       
     }
 
 
-    exports.logout_get = (req,res) =>{
+    export const logout_get_contro = (req,res) =>{
         res.cookie('jwt', '', {maxAge:1 });
         res.redirect('/');
     }
+
+
+

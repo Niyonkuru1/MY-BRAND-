@@ -1,18 +1,21 @@
-const express = require('express');
+import express from 'express';
 const authRoute = express.Router();
-const services = require('../services/authRender');
-const authController = require('../controller/authController')
+import {signup_get,signup_post,login_get,login_post} from '../services/authRender';
+import {signup_post_contro,login_post_contro,logout_get_contro} from '../controller/authController';
 
-authRoute.get('/signup',services.signup_get);
-authRoute.post('/signup', services.signup_post);
-authRoute.get('/login', services.login_get);
-authRoute.post('/login', services.login_post);
+authRoute.get('/signup',signup_get);
+authRoute.post('/signup', signup_post);
+authRoute.get('/login', login_get);
+authRoute.post('/login', login_post);
+
 
 
 // auth API
-authRoute.post('/auth/signup',authController.signup_post );
-authRoute.post('/auth/login',authController.login_post );
-authRoute.get('/logout',authController.logout_get );
+authRoute.post('/auth/signup',signup_post_contro );
+authRoute.post('/auth/login',login_post_contro );
+authRoute.get('/logout',logout_get_contro );
 
 module.exports = authRoute;
+
+
 

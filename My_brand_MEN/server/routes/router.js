@@ -1,24 +1,26 @@
-const express = require('express');
+import express from 'express';
 const route = express.Router();
-const services = require('../services/render');
-const controller = require('../controller/controller');
-const authMiddleware = require('../middleware/authMiddleware');
+import {allBlogsRoutes, addBlogRoutes, updateBlogRoutes, 
+    deleteBlogRoutes, homeRoutes} from '../services/render';
 
-route.get('/',services.homeRoutes);
+import {create, find,update, delet} from '../controller/controller';
+import requireAuth from '../middleware/authMiddleware';
 
-route.get('/all-blog',authMiddleware,services.allBlogsRoutes);
+route.get('/',homeRoutes);
 
-route.get('/add-blog',authMiddleware,services.addBlogRoutes);
+route.get('/all-blog',requireAuth,allBlogsRoutes);
 
-route.get('/update-blog',authMiddleware,services.updateBlogRoutes);
+route.get('/add-blog',requireAuth,addBlogRoutes);
 
-route.get('/delete-blog',authMiddleware,services.deleteBlogRoutes);
+route.get('/update-blog',requireAuth,updateBlogRoutes);
+
+route.get('/delete-blog',requireAuth,deleteBlogRoutes);
 
 
 // API then 
-route.post('/api/blogs', controller.create);
-route.get('/api/blogs', controller.find);
-route.put('/api/blogs/:id', controller.update);
-route.delete('/api/blogs/:id', controller.delete);
+route.post('/api/blogs', create);
+route.get('/api/blogs', find);
+route.put('/api/blogs/:id', update);
+route.delete('/api/blogs/:id', delet);
 
 module.exports = route;

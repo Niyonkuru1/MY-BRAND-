@@ -1,8 +1,8 @@
-var Blogdb = require('../model/model');
+import Blogdb from '../model/model';
 
 
 //create and save new blog
-exports.create = (req,res)=>{
+export const create = (req,res)=>{
 
     //validate request
     if ( !req.body){
@@ -37,7 +37,7 @@ exports.create = (req,res)=>{
 }
 
 //retrieve and return all blogs / retrieve and return a single user
-exports.find = (req,res)=>{
+export const find = (req,res)=>{
     if (req.query.id){
         const id = req.query.id;
         Blogdb.findById(id)
@@ -66,7 +66,7 @@ exports.find = (req,res)=>{
 }
 
 //update a new identified blog with the blog id
-exports.update = (req,res)=>{
+export const update = (req,res)=>{
 if (!req.body){
     return res
     .status(400)
@@ -92,7 +92,7 @@ Blogdb.findByIdAndUpdate(id, req.body, {userFindAndModify:false})
 })
 }
 // delete the blog with the blog is specified in the request
-exports.delete = (req,res)=>{
+export const delet = (req,res)=>{
     const id = req.params.id;
 
     Blogdb.findByIdAndDelete(id)

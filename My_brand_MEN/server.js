@@ -1,11 +1,12 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const morgan = require('morgan');
-const bodyparser = require('body-parser');
-const path = require('path');
+import express  from "express";
+import  dotenv  from "dotenv";
+import  morgan  from "morgan";
+import  bodyparser from "body-parser"
+import  path  from "path";
+import cookieParser from 'cookie-parser';
 
-const connectDB =require('./server/database/connection');
-const cookieParser = require('cookie-parser');
+
+import  connectDB  from './server/database/connection';
 
 const app = express();
 
