@@ -31,10 +31,11 @@ import {getFirestore, collection,
       addDoc(ref, {
         Title: addPost.title.value,
         Body: addPost.body.value,
-        CreatedAt: serverTimestamp() 
+        CreatedAt: serverTimestamp(),
+        commentArr: []
     })
     .then(() => {
-        console.log("it has been done")
+        console.log("The post has been added SUCCESSFULLY!!!!");
         addPost.reset()
     })
   })
